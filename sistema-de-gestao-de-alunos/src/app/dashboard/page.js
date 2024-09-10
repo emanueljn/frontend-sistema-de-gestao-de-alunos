@@ -10,7 +10,7 @@ export default function dashboard() {
         <main className={styles.conteudo__principal}>
             <a href="alunos" className={styles.conteudo__principal__link__ancora}>
                 <div className={styles.conteudo__principal__link}>
-                    <h2 className={styles.conteudo__principal__link__subtitulo}>Alunos</h2>
+                    <h2 className={styles.conteudo__principal__link__subtitulo}>Alunos/Turmas</h2>
                 </div>
             </a>
         </main>
