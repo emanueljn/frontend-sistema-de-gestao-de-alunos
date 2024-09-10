@@ -1,0 +1,61 @@
+
+.conteudo__principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+    padding: 3rem;
+}
+
+.conteudo__principal__alunos {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 50rem;
+    height: 45rem;
+    border: 1px solid #000;
+    border-radius: 15px;
+    padding: 1rem;
+}
+
+.conteudo__principal__alunos__subtitulo {
+    align-items: center;
+    font-size: 24px;
+}
+
+.conteudo__principal__alunos__navegacao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15%;
+    flex-direction: row;
+    gap: 3rem;
+    border-bottom: 1px solid #000;
+}
+
+.conteudo__principal__alunos__navegacao__entrada {
+    display: flex;
+    border: 1px solid #000;
+    width: 27rem;
+    height: 2rem;
+    border-radius: 10px;
+}
+
+.conteudo__principal__alunos__navegacao__filtro {
+    display: flex;
+    width: 12rem;
+    height: 2rem;
+    border: 1px solid #000;
+    border-radius: 10px;
+}
+
+.conteudo__principal__alunos__navegacao__imagem {
+    display: flex;
+    width: 35%;
+}
+
+.conteudo__principal__alunos__resultado {
+    display: flex;
+    width: 95%;
+}
