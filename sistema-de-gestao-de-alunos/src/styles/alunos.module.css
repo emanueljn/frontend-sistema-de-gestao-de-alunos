@@ -57,5 +57,11 @@
 
 .conteudo__principal__alunos__resultado {
     display: flex;
+    flex-direction: column;
     width: 95%;
+    gap: 1rem;
+}
+
+.conteudo__principal__alunos__resultado__aluno {
+    display: flex;
 }
