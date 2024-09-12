@@ -137,7 +137,7 @@
                     </tr>
                     <tr>
                         <td>Kauã Lima</td>
-                        <td>123456</td>
+                        <td>1234567</td>
                         <td class="actions">
                             <a href="#lancar-frequencia">Lançar Frequência</a>
                             <a href="#avaliacao-nota">Avaliação e Nota</a>
@@ -146,7 +146,7 @@
                     </tr>
                     <tr>
                         <td>Lucas Jonatan</td>
-                        <td>123456</td>
+                        <td>12345678</td>
                         <td class="actions">
                             <a href="#lancar-frequencia">Lançar Frequência</a>
                             <a href="#avaliacao-nota">Avaliação e Nota</a>
@@ -155,7 +155,7 @@
                     </tr>
                     <tr>
                         <td>Marcos Alexandre</td>
-                        <td>123456</td>
+                        <td>1234568</td>
                         <td class="actions">
                             <a href="#lancar-frequencia">Lançar Frequência</a>
                             <a href="#avaliacao-nota">Avaliação e Nota</a>
@@ -164,7 +164,7 @@
                     </tr>
                     <tr>
                         <td>Vitório Felício</td>
-                        <td>123456</td>
+                        <td>1234569</td>
                         <td class="actions">
                             <a href="#lancar-frequencia">Lançar Frequência</a>
                             <a href="#avaliacao-nota">Avaliação e Nota</a>
@@ -173,7 +173,7 @@
                     </tr>
                     <tr>
                         <td>Eduardo Vinicius</td>
-                        <td>6654343</td>
+                        <td>665434</td>
                         <td class="actions">
                             <a href="#lancar-frequencia">Lançar Frequência</a>
                             <a href="#avaliacao-nota">Avaliação e Nota</a>
