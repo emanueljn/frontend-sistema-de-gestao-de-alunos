@@ -1,92 +1,211 @@
-"use client";
-import { useState } from "react";
-import styles from '../../styles/alunos.module.css';
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos Matriculados - Disciplina</title>
+    <style>
+        /* Definindo a paleta de cores */
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #f8f9fa;
+            --text-color: #333;
+            --button-hover-color: #0056b3;
+            --button-bg-color: #007BFF;
+        }
 
-export default function Page() {
-  const [inputValue, setInputValue] = useState('');
-  const [data, setData] = useState([]); // Estado para armazenar os dados da API
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--secondary-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-  const fetchAlunos = async (query = '') => {
-    try {
-      const url = `http://127.0.0.1:8000/api/v1/alunos/?ilike(user__username,${query}*)`;
-      const response = await fetch(url);
-      if (!response.ok) {
-        throw new Error('Erro na requisição');
-      }
-      const result = await response.json();
-      setData(result); // Armazena os dados recebidos no estado
-    } catch (error) {
-      console.error('Erro ao fazer a requisição:', error);
-    }
-  };
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
 
-  const handleInputChange = (event) => {
-    const value = event.target.value;
-    setInputValue(value);
-    fetchAlunos(value); // Chama a função de busca com o valor atual do input
-  };
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+        }
 
-  // Busca todos os alunos inicialmente
-  useState(() => {
-    fetchAlunos(''); // Chama a função de busca com uma string vazia
-  }, []);
+        .container {
+            padding: 2rem;
+            flex: 1;
+        }
 
-  return (
-    <>
-      <header>
-      
-      </header>
+        .table-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+        }
 
-      <main className={styles.conteudo__principal}>
-        <div className={styles.conteudo__principal__alunos}>
-          <h2 className={styles.conteudo__principal__alunos__subtitulo}>Alunos</h2>
-          <div className={styles.conteudo__principal__alunos__navegacao}>
-            <input 
-              type="text"
-              value={inputValue}
-              onChange={handleInputChange}
-              className={styles.conteudo__principal__alunos__navegacao__entrada} 
-              placeholder='Pesquise o aluno por nome'
-            />
-            <select className={styles.conteudo__principal__alunos__navegacao__filtro}></select>
-            <a><img src='./images/plus_icon.svg' className={styles.conteudo__principal__alunos__navegacao__imagem} alt='Ícone Adicionar'></img></a>
-          </div>
-          <div className={styles.conteudo__principal__alunos__resultado}>
-            {/* Renderiza os dados recebidos */}
-            {data.length > 0 ? (
-              data.map((aluno, index) => (
-                <div
-                  key={index}
-                  className={styles.conteudo__principal__alunos__resultado__aluno}
-                >
-                  <h3>Nome: {aluno.user.username}</h3>
-                  <p>Matrícula: {aluno.matricula}</p>
-                </div>
-              ))
-            ) : (
-              <p>Nenhum aluno encontrado.</p>
-            )}
-          </div>
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+
+        table th, table td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        table th {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        table td a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        table td a:hover {
+            color: var(--button-hover-color);
+        }
+
+        /* Botões de ação */
+        .actions a {
+            display: inline-block;
+            padding: 10px 15px;
+            color: white;
+            background-color: var(--button-bg-color);
+            border-radius: 4px;
+            text-decoration: none;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .actions a:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Página de Alunos Matriculados na Disciplina</h1>
+    </header>
+
+    <div class="container">
+        <div class="table-container">
+            <h2>Visão Professor/Admin</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Aluno</th>
+                        <th>Matrícula</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Rafael Pedroso</td>
+                        <td>123456</td>
+                        <td class="actions">
+                            <a href="#lancar-frequencia">Lançar Frequência</a>
+                            <a href="#avaliacao-nota">Avaliação e Nota</a>
+                            <a href="#conclusao">Conclusão</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Kauã Lima</td>
+                        <td>123456</td>
+                        <td class="actions">
+                            <a href="#lancar-frequencia">Lançar Frequência</a>
+                            <a href="#avaliacao-nota">Avaliação e Nota</a>
+                            <a href="#conclusao">Conclusão</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Lucas Jonatan</td>
+                        <td>123456</td>
+                        <td class="actions">
+                            <a href="#lancar-frequencia">Lançar Frequência</a>
+                            <a href="#avaliacao-nota">Avaliação e Nota</a>
+                            <a href="#conclusao">Conclusão</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Marcos Alexandre</td>
+                        <td>123456</td>
+                        <td class="actions">
+                            <a href="#lancar-frequencia">Lançar Frequência</a>
+                            <a href="#avaliacao-nota">Avaliação e Nota</a>
+                            <a href="#conclusao">Conclusão</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Vitório Felício</td>
+                        <td>123456</td>
+                        <td class="actions">
+                            <a href="#lancar-frequencia">Lançar Frequência</a>
+                            <a href="#avaliacao-nota">Avaliação e Nota</a>
+                            <a href="#conclusao">Conclusão</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Eduardo Vinicius</td>
+                        <td>6654343</td>
+                        <td class="actions">
+                            <a href="#lancar-frequencia">Lançar Frequência</a>
+                            <a href="#avaliacao-nota">Avaliação e Nota</a>
+                            <a href="#conclusao">Conclusão</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Emanuel Nardes</td>
+                        <td>654321</td>
+                        <td class="actions">
+                            <a href="#lancar-frequencia">Lançar Frequência</a>
+                            <a href="#avaliacao-nota">Avaliação e Nota</a>
+                            <a href="#conclusao">Conclusão</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Silvio José</td>
+                        <td>987654</td>
+                        <td class="actions">
+                            <a href="#lancar-frequencia">Lançar Frequência</a>
+                            <a href="#avaliacao-nota">Avaliação e Nota</a>
+                            <a href="#conclusao">Conclusão</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+    </div>
 
-        <div className={styles.conteudo__principal__alunos}>
-          <h2 className={styles.conteudo__principal__alunos__subtitulo}>
-            Turmas
-          </h2>
-          <div className={styles.conteudo__principal__alunos__navegacao}>
-            <input className={styles.conteudo__principal__alunos__navegacao__entrada} placeholder='Pesquise o aluno por nome'></input>
-            <select className={styles.conteudo__principal__alunos__navegacao__filtro}></select>
-            <a><img src='./images/plus_icon.svg' className={styles.conteudo__principal__alunos__navegacao__imagem} alt='Ícone Adicionar'></img></a>
-          </div>
-          <div>
+    <footer>
+        <p>© 2024 Sistema de Gestão Escolar</p>
+    </footer>
 
-          </div>
-        </div>
-      </main>
-
-      <footer>
-
-      </footer>
-    </>
-  )
-}
+</body>
+</html>
