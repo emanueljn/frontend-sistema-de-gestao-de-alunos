@@ -9,7 +9,7 @@ export default function Page() {
 
   const fetchAlunos = async (query = '') => {
     try {
-      const url = `http://127.0.0.1:8000/api/v1/alunos/?ilike(user__username,${query}*)`;
+      const url = `http://127.0.0.1:8000/api/v1/alunos/?ilike(user__full_name,${query}*)`;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error('Erro na requisição');
@@ -47,7 +47,9 @@ export default function Page() {
               placeholder='Pesquise o aluno por nome'
             />
             <select className={styles.conteudo__principal__alunos__navegacao__filtro}></select>
-            <a><img src='./images/plus_icon.svg' className={styles.conteudo__principal__alunos__navegacao__imagem} alt='Ícone Adicionar'></img></a>
+            <a href="/cadastrarAluno">
+              <img src='./images/plus_icon.svg' className={styles.conteudo__principal__alunos__navegacao__imagem} alt='Ícone Adicionar'></img>
+            </a>
           </div>
           <div className={styles.conteudo__principal__alunos__resultado}>
             {/* Renderiza os dados recebidos */}
@@ -57,7 +59,7 @@ export default function Page() {
                   key={index}
                   className={styles.conteudo__principal__alunos__resultado__aluno}
                 >
-                  <h3>Nome: {aluno.user.username}</h3>
+                  <h3>Nome: {aluno.user.full_name}</h3>
                   <p>Matrícula: {aluno.matricula}</p>
                 </div>
               ))
