@@ -1,15 +1,19 @@
 "use client";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
+import Link from 'next/link';
 import styles from '../../styles/alunos.module.css';
 import Layout from '../../components/Layout.js';
 
 export default function Page() {
   const [inputValue, setInputValue] = useState('');
-  const [data, setData] = useState([]); // Estado para armazenar os dados da API
+  const [loading, setLoading] = useState(true); // Estado de loading
+  const [data, setData] = useState([]);
 
   const fetchAlunos = async (query = '') => {
+    setLoading(true); // Ativa o loading antes de iniciar a requisição
     try {
-      const url = `http://127.0.0.1:8000/api/v1/alunos/?ilike(user__full_name,${query}*)`;
+      const url = `http://127.0.0.1:8000/api/v1/alunos/?ilike(full_name,${query}*)`;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error('Erro na requisição');
@@ -18,6 +22,8 @@ export default function Page() {
       setData(result); // Armazena os dados recebidos no estado
     } catch (error) {
       console.error('Erro ao fazer a requisição:', error);
+    } finally {
+      setLoading(false); // Desativa o loading após a requisição ser concluída
     }
   };
 
@@ -28,9 +34,10 @@ export default function Page() {
   };
 
   // Busca todos os alunos inicialmente
-  useState(() => {
+  useEffect(() => {
     fetchAlunos(''); // Chama a função de busca com uma string vazia
   }, []);
+
 
   return (
     <>
@@ -38,6 +45,7 @@ export default function Page() {
       <main className={styles.conteudo__principal}>
         <div className={styles.conteudo__principal__alunos}>
           <h2 className={styles.conteudo__principal__alunos__subtitulo}>Alunos</h2>
+          
           <div className={styles.conteudo__principal__alunos__navegacao}>
             <input 
               type="text"
@@ -51,16 +59,23 @@ export default function Page() {
               <img src='./images/plus_icon.svg' className={styles.conteudo__principal__alunos__navegacao__imagem} alt='Ícone Adicionar'></img>
             </a>
           </div>
+
           <div className={styles.conteudo__principal__alunos__resultado}>
-            {/* Renderiza os dados recebidos */}
-            {data.length > 0 ? (
+            {loading ? (
+              <div className={styles.loadingText}>
+                Carregando<span className={styles.dots}></span>
+              </div>
+            ) : data.length > 0 ? (
               data.map((aluno, index) => (
                 <div
                   key={index}
                   className={styles.conteudo__principal__alunos__resultado__aluno}
                 >
-                  <h3>Nome: {aluno.user.full_name}</h3>
-                  <p>Matrícula: {aluno.matricula}</p>
+                  {/* Link sem a tag <a> */}
+                  <Link href={`/aluno/${aluno.id}`}>
+                    <h3>Nome: {aluno.full_name}</h3>
+                    <p>Matrícula: {aluno.matricula}</p>
+                  </Link>
                 </div>
               ))
             ) : (

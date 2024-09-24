@@ -34,7 +34,6 @@ export default function Example() {
           e.preventDefault();
       
           const data = {
-            user: {
               full_name: formData.full_name,
               email: formData.email,
               cpf: formData.cpf,
@@ -50,7 +49,6 @@ export default function Example() {
               },
               telefone_1: formData.telefone_1,
               telefone_2: formData.telefone_2,
-            },
             matricula: formData.matricula,
           };
       
