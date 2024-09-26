@@ -239,7 +239,6 @@ export default function Example() {
                         {errors.logradouro && <p className="mt-2 text-sm text-red-600">{errors.logradouro}</p>}
                     </div>
                 </div>
-
                 <div className="sm:col-span-3">
                     <label htmlFor="cidade" className="block text-sm font-medium leading-6 text-gray-900">
                         Complemento
