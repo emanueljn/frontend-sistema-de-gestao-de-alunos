@@ -61,10 +61,22 @@
     flex-direction: column;
     width: 95%;
     gap: 1rem;
+    margin-top: 1rem;
 }
 
 .conteudo__principal__alunos__resultado__aluno {
     display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    background-color:#efefef;
+    width: 100%;
+    height: 3rem;
+    padding: 1rem;
+    border-radius: .5rem;
+}
+
+.conteudo__principal__alunos__resultado__aluno:hover {
+  background-color:#bababa;
 }
 
 /* Estilo básico para o texto de carregamento */

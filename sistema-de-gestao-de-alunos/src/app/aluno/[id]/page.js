@@ -1,9 +1,6 @@
-// src/app/aluno/[id]/page.js
-
-
 import { use } from 'react';
 import Layout from '../../../components/Layout.js';
-import AlunoDetalhes from '../../../components/AlunoDetalhes'; // ajuste o caminho se necessário
+import AlunoDetalhes from '../../../components/AlunoDetalhes';
 
 export default function AlunoPage({ params }) {
   const { id } = params;
@@ -16,10 +13,7 @@ export default function AlunoPage({ params }) {
   return (
     <>
       <Layout>
-        <div>
-          <h1>Detalhes do Aluno</h1>
           <AlunoDetalhes aluno={aluno} />
-        </div>
       </Layout>
     </>
   );

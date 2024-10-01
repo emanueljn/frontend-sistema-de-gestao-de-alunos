@@ -38,7 +38,6 @@ export default function Page() {
     fetchAlunos(''); // Chama a função de busca com uma string vazia
   }, []);
 
-
   return (
     <>
       <Layout>
@@ -72,9 +71,15 @@ export default function Page() {
                   className={styles.conteudo__principal__alunos__resultado__aluno}
                 >
                   {/* Link sem a tag <a> */}
-                  <Link href={`/aluno/${aluno.id}`}>
-                    <h3>Nome: {aluno.full_name}</h3>
-                    <p>Matrícula: {aluno.matricula}</p>
+                  <Link 
+                  className={styles.conteudo__principal__alunos__resultado__aluno}
+                  href={`/aluno/${aluno.id}`}>
+                    <h3 className={styles.conteudo__principal__alunos__resultado__nome}>
+                      {aluno.full_name}
+                    </h3>
+                    <p className={styles.conteudo__principal__alunos__resultado__matricula}>
+                      {aluno.matricula}
+                    </p>
                   </Link>
                 </div>
               ))

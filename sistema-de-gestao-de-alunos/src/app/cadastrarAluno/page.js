@@ -2,7 +2,8 @@
 
 import Layout from '../../components/Layout';
 import styles from '../../styles/cadastrarAluno.module.css';
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid';
+
+import { UserCircleIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
 
 export default function Example() {
@@ -367,7 +368,7 @@ export default function Example() {
             </button>
             <button
                 type="submit"
-                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                className="rounded-md bg-[#007BFF] px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-[#003f7f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#007BFF]"
             >
                 Save
             </button>

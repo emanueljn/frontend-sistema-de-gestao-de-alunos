@@ -1,16 +1,14 @@
-import { UserIcon } from '@heroicons/react/24/solid';
+import { HomeIcon, UserIcon } from '@heroicons/react/24/solid';
 import MenuButton from '../components/MenuButton';
 
 export default function Header() {
     return (
         <header style={headerStyles}>
-             <MenuButton />
+            <MenuButton />
 
-            <a href="/dashboard"><img
-            style={imageStyles}
-            src="./images/home_icon.png"
-            alt="Home Icon"
-            />
+            
+            <a href="/dashboard">
+                <HomeIcon className="h-8 w-8 text-white mr-2" />
             </a>
 
             <div className="flex items-center justify-center bg-gray-200 rounded-full p-2">
