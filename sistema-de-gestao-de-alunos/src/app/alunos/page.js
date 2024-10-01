@@ -83,22 +83,6 @@ export default function Page() {
             )}
           </div>
         </div>
-
-        <div className={styles.conteudo__principal__alunos}>
-          <h2 className={styles.conteudo__principal__alunos__subtitulo}>
-            Turmas
-          </h2>
-          <div className={styles.conteudo__principal__alunos__navegacao}>
-            <input className={styles.conteudo__principal__alunos__navegacao__entrada} placeholder='Pesquise o aluno por nome'></input>
-            <select className={styles.conteudo__principal__alunos__navegacao__filtro}></select>
-            <a href="cadastrarAluno">
-              <img src='./images/plus_icon.svg' className={styles.conteudo__principal__alunos__navegacao__imagem} alt='Ícone Adicionar'></img>
-            </a>
-          </div>
-          <div>
-
-          </div>
-        </div>
       </main>
       </Layout>
     </>

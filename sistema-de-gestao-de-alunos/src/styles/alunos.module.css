@@ -4,6 +4,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100vh;
     gap: 10rem;
     padding: 3rem;
 }
@@ -65,8 +66,6 @@
 .conteudo__principal__alunos__resultado__aluno {
     display: flex;
 }
-
-/* Adicione este CSS no seu arquivo de estilos (por exemplo, seu-estilo.module.css) */
 
 /* Estilo básico para o texto de carregamento */
 .loadingText {
