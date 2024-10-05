@@ -33,27 +33,37 @@ export default function Example() {
         });
     };
     
+    // Função que verifica se todos os campos do endereço estão vazios
+    const isEnderecoEmpty = () => {
+        return !formData.logradouro && !formData.numero && !formData.bairro && !formData.cidade && !formData.uf && !formData.cep && !formData.complemento;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
     
+       // Criar o objeto data
         const data = {
             full_name: formData.full_name,
             email: formData.email,
             cpf: formData.cpf,
             escola: formData.escola,
-            endereco: {
-            logradouro: formData.logradouro,
-            numero: formData.numero,
-            bairro: formData.bairro,
-            cidade: formData.cidade,
-            uf: formData.uf,
-            cep: formData.cep,
-            complemento: formData.complemento,
-            },
             telefone_1: formData.telefone_1,
             telefone_2: formData.telefone_2,
-        matricula: formData.matricula,
+            matricula: formData.matricula,
         };
+
+        // Se o endereço não estiver vazio, adicionar ao payload
+        if (!isEnderecoEmpty()) {
+            data.endereco = {
+                logradouro: formData.logradouro,
+                numero: formData.numero,
+                bairro: formData.bairro,
+                cidade: formData.cidade,
+                uf: formData.uf,
+                cep: formData.cep,
+                complemento: formData.complemento,
+            };
+        }
     
         try {
         const response = await fetch('http://127.0.0.1:8000/api/v1/alunos/', {
@@ -296,7 +306,7 @@ export default function Example() {
                         <input
                             id="cidade"
                             name="cidade"
-                            type="text"
+                            type="number"
                             autoComplete="address-level1"
                             className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.cidade ? 'ring-red-500' : ''}`}
                             value={formData.cidade}
@@ -332,7 +342,7 @@ export default function Example() {
                         <input
                             id="telefone_1"
                             name="telefone_1"
-                            type="text"
+                            type="number"
                             autoComplete="tel"
                             className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.telefone_1 ? 'ring-red-500' : ''}`}
                             value={formData.telefone_1}
