@@ -1,13 +1,13 @@
 "use client";
 
+import { useState } from 'react';
 import Layout from '../../components/Layout';
 import styles from '../../styles/cadastrarAluno.module.css';
 
-import { UserCircleIcon } from '@heroicons/react/24/solid';
-import { useState } from 'react';
-
 export default function Example() {
     const [errors, setErrors] = useState({});
+    const [successMessage, setSuccessMessage] = useState('');
+    const [showSuccess, setShowSuccess] = useState(false);
 
     const [formData, setFormData] = useState({
         full_name: '',
@@ -78,7 +78,34 @@ export default function Example() {
   
         if (response.ok) {
             setErrors({}); // Limpa os erros em caso de sucesso
-            console.log('Aluno cadastrado com sucesso');
+            
+            // Rolar a página para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Exibir mensagem de sucesso
+            setSuccessMessage('Aluno cadastrado com sucesso!');
+            setShowSuccess(true);
+
+            // Limpar campos do formulário
+            setFormData({
+                full_name: '',
+                email: '',
+                cpf: '',
+                escola: '',
+                logradouro: '',
+                numero: '',
+                bairro: '',
+                cidade: '',
+                uf: '',
+                cep: '', 
+                complemento: '',
+                telefone_1: '',
+                telefone_2: '',
+                matricula: '',
+            });
+
+            // Esconder a mensagem de sucesso após 3 segundos
+            setTimeout(() => setShowSuccess(false), 3000);
         } else {
             setErrors(responseData); // Armazena os erros no state
             console.log('Erro ao cadastrar aluno:', responseData);  // Exibe o erro retornado pela API
@@ -91,6 +118,11 @@ export default function Example() {
   return (
     <>
       <Layout>
+        {showSuccess && (
+            <div className="fixed top-0 left-0 w-full bg-green-500 bg-opacity-75 text-white text-center py-3 shadow-lg z-50 mt-12">
+                <p>{successMessage}</p>
+            </div>
+        )}
         <form className={styles.conteudo__principal__formulario} onSubmit={handleSubmit}>
             <div className="border-b border-gray-900/10 pb-12">
                 <h2 className="text-base font-semibold leading-7 text-gray-900">Informações Pessoais</h2>
