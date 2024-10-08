@@ -19,7 +19,7 @@ export default function dashboard() {
                     </div>
                 </a>
 
-                <a href="" className={styles.conteudo__principal__link__ancora}>
+                <a href="professores" className={styles.conteudo__principal__link__ancora}>
                     <div className={styles.conteudo__principal__link}>
                         <img
                             className={styles.conteudo__principal__link__imagem}
