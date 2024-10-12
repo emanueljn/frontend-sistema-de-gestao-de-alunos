@@ -1,9 +1,11 @@
 import { use } from 'react';
 import Layout from '../../../components/Layout.js';
 import AlunoDetalhes from '../../../components/AlunoDetalhes';
+import Historico from '../../../components/Historico';
 
 export default function AlunoPage({ params }) {
   const { id } = params;
+  
   const aluno = use(fetch(`http://127.0.0.1:8000/api/v1/alunos/${id}`).then(res => res.json()));
 
   if (!aluno) {
@@ -14,6 +16,7 @@ export default function AlunoPage({ params }) {
     <>
       <Layout>
           <AlunoDetalhes aluno={aluno} />
+          <Historico alunoId={id} />
       </Layout>
     </>
   );
