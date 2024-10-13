@@ -2,6 +2,7 @@ import { HomeIcon, UserIcon } from '@heroicons/react/24/solid';
 import MenuButton from '../components/MenuButton';
 
 export default function Header() {
+    
     return (
         <header style={headerStyles}>
             <MenuButton />
@@ -26,7 +27,3 @@ const headerStyles = {
     backgroundColor: '#007BFF',
     padding: '.2rem 1rem'
 };
-
-const imageStyles = {
-    height: '40px'
-}
