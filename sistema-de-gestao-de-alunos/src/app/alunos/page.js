@@ -1,57 +1,68 @@
 "use client";
 
+import { signOut, useSession } from 'next-auth/react';
 import { useState, useEffect } from "react";
 import Link from 'next/link';
 import styles from '../../styles/alunos.module.css';
 import Layout from '../../components/Layout.js';
 
 export default function Page() {
+  const { data: session } = useSession(); 
   const [inputValue, setInputValue] = useState('');
-  const [loading, setLoading] = useState(true); // Estado de loading
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [anosInscricao, setAnosInscricao] = useState([]);
   const [filtroAno, setFiltroAno] = useState('');
 
   const fetchAlunos = async (query = '') => {
-    setLoading(true); // Ativa o loading antes de iniciar a requisição
+    setLoading(true);
+    const token = session?.user?.token;
+    
     try {
       let url = `http://127.0.0.1:8000/api/v1/alunos/?ilike(full_name,${query}*)`;
         
-        // Se um ano estiver selecionado, adicione o filtro de ano
-        if (filtroAno) {
-            url += `,ge(data_inscricao,'${filtroAno}-01-01T00:00:00Z'),lt(data_inscricao,'${parseInt(filtroAno) + 1}-01-01T00:00:00Z')`;
-        }
+      // Se um ano estiver selecionado, adicione o filtro de ano
+      if (filtroAno) {
+          url += `,ge(data_inscricao,'${filtroAno}-01-01T00:00:00Z'),lt(data_inscricao,'${parseInt(filtroAno) + 1}-01-01T00:00:00Z')`;
+      }
 
-      const response = await fetch(url);
+      const response = await fetch(url, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+       }
+      });
+
       if (!response.ok) {
         throw new Error('Erro na requisição');
       }
+
       const result = await response.json();
-      setData(result); // Armazena os dados recebidos no estado
+      setData(result); 
 
       // Extrair os anos de inscrição dos alunos
       const anos = Array.from(
         new Set(result.map(aluno => new Date(aluno.data_inscricao).getFullYear()))
-      ).sort(); // Obtem os anos únicos e ordena
-
+      ).sort(); 
       setAnosInscricao(anos); // Armazena os anos no estado
     } catch (error) {
       console.error('Erro ao fazer a requisição:', error);
     } finally {
-      setLoading(false); // Desativa o loading após a requisição ser concluída
+      setLoading(false);
     }
   };
 
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
-    fetchAlunos(value); // Chama a função de busca com o valor atual do input
+    fetchAlunos(value);
   };
 
   // Busca todos os alunos inicialmente
-  useEffect(() => {
-    fetchAlunos(''); // Chama a função de busca com uma string vazia
-  }, []);
+  useEffect((session) => {
+    fetchAlunos(''); 
+  }, [session]);
 
   return (
     <>

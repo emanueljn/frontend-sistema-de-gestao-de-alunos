@@ -1,6 +1,9 @@
+"use client";
+
 import localFont from "next/font/local";
 import "./globals.css";
 import '../styles/reset.css';
+import { SessionProvider } from 'next-auth/react';
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -13,19 +16,21 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
-export const metadata = {
-  title: "SGA",
-  description: "Sistema de gestão de alunos",
-};
 
-export default function RootLayout({ children }) {
+//export const metadata = {
+//  title: "SGA",
+//  description: "Sistema de gestão de alunos",
+//}; 
+
+export default async function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    
+      <html lang="pt-br">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+            <SessionProvider> {children} </SessionProvider>
+        </body>
+      </html>
   );
 }

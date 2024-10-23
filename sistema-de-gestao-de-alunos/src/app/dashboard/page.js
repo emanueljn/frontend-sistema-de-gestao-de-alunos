@@ -2,7 +2,7 @@ import styles from '../../styles/dashboard.module.css';
 import Layout from '../../components/Layout';
 import '../../styles/reset.css';
 
-export default function dashboard() {
+export default function Dashboard({ session }) {
     return (
       <>
         <Layout>
@@ -77,5 +77,5 @@ export default function dashboard() {
         </main>
         </Layout>
       </>
-    )
+    );
 }
