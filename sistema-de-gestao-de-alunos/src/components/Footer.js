@@ -5,7 +5,15 @@ export default function Footer() {
                 <p>Termos de Uso</p>
                 <p>Termos de Privacidade</p>
             </div>
-            <p>© 2024 Escola ECEEJA de Miracatu. Todos os direitos reservados.</p>
+            <p>© 2024 Emanuel de Jesus Nardes, 
+                Eduardo Vinicius de Araujo, 
+                Kauã Franchini Lima, 
+                Lucas Jonatas Dionísio, 
+                Marcos Alexandre Yoshiwara,           
+                Rafael de Oliveira Claro Pedroso, Silvio Jose Batista, 
+                Vitório Felício do Santos
+                . Todos os direitos reservados.
+            </p>
         </footer>
     );
 }
