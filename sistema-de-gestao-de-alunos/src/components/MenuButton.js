@@ -28,7 +28,7 @@ export default function MenuButton() {
                 <a href="" className={styles.link}>
                     <h2>Institucional</h2>
                 </a>
-                <a href="" className={styles.link}>
+                <a href="professores" className={styles.link}>
                     <h2>Professores</h2>
                 </a>
                 <a href="alunos" className={styles.link}>
