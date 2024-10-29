@@ -6,18 +6,22 @@ import { useState } from 'react';
 export default function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [error, setError] = useState(null); 
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    await signIn('credentials', { email, password });
 
-    if (result?.error) {
-      setErrorMessage('Falha na autenticação');
-    } else {
-      // Redirecionar para a página desejada após o sucesso do login
-      window.location.href = '/dashboard';
-    }
+    signIn('credentials', {
+      redirect: false,
+      email,
+      password,
+    }).then((result) => {
+      if (result.error) {
+        setError(result.error);
+      } else {
+        window.location.href = '/dashboard';
+      }
+    });
   };
 
   return (
@@ -70,6 +74,10 @@ export default function SignIn() {
               </div>
             </div>
 
+            {error && ( 
+              <p className="mt-2 text-red-500 text-center">{error}</p>
+            )}
+
             <div>
               <button
                 type="submit"
@@ -79,7 +87,6 @@ export default function SignIn() {
               </button>
             </div>
           </form>
-          {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
         </div>
       </div>
     </>

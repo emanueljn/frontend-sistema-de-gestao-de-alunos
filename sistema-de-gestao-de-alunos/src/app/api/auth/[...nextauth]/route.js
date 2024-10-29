@@ -1,3 +1,4 @@
+import { error } from 'console';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { setCookie } from 'nookies';
@@ -11,11 +12,6 @@ export const POST = NextAuth({
         password: { label: 'Password', type: 'password' }
       },
       async authorize(credentials) {
-        console.log({
-            email: credentials?.email,
-            password: credentials?.password
-        });
-
         try {
           const res = await fetch('http://127.0.0.1:8000/token/', {
             method: 'POST',
@@ -40,11 +36,10 @@ export const POST = NextAuth({
 
             return { ...user, token: user.access }; // Retorna o token de acesso
           } else {
-            return null;
+            throw new Error(user?.detail);
           }
         } catch (error) {
-          console.error('Erro na autenticação', error);
-          return null;
+          throw new Error(error);
         }
       }
     })
@@ -56,8 +51,8 @@ export const POST = NextAuth({
     secret: process.env.JWT_SECRET,
   },
   callbacks: {
-    async redirect({ url, baseUrl }) {
-      return baseUrl + '/dashboard'; // Redireciona para o dashboard como fallback
+    async redirect({ baseUrl }) {
+      return baseUrl + '/dashboard';
     },
     async jwt({ token, user }) {
       if (user) {
@@ -71,7 +66,7 @@ export const POST = NextAuth({
       session.user.token = token.access; 
       return session;
     }
-  }
+  },
 });
 
 export { POST as GET };
