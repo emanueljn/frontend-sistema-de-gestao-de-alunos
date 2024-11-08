@@ -1,6 +1,7 @@
 import styles from '../../styles/dashboard.module.css';
 import Layout from '../../components/Layout';
 import '../../styles/reset.css';
+import Image from 'next/image';
 
 export default function Dashboard({ session }) {
     return (
@@ -10,7 +11,7 @@ export default function Dashboard({ session }) {
             <section className={styles.conteudo__principal__links}>
                 <a href="" className={styles.conteudo__principal__link__ancora}>
                     <div className={styles.conteudo__principal__link}>
-                        <img
+                        <Image
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/institutional_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"
@@ -21,7 +22,7 @@ export default function Dashboard({ session }) {
 
                 <a href="professores" className={styles.conteudo__principal__link__ancora}>
                     <div className={styles.conteudo__principal__link}>
-                        <img
+                        <Image
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/teacher_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"
@@ -32,7 +33,7 @@ export default function Dashboard({ session }) {
 
                 <a href="alunos" className={styles.conteudo__principal__link__ancora}>
                     <div className={styles.conteudo__principal__link}>
-                        <img
+                        <Image
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/student_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"
@@ -43,7 +44,7 @@ export default function Dashboard({ session }) {
 
                 <a href="" className={styles.conteudo__principal__link__ancora}>
                     <div className={styles.conteudo__principal__link}>
-                        <img
+                        <Image
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/class_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"
@@ -54,7 +55,7 @@ export default function Dashboard({ session }) {
 
                 <a href="" className={styles.conteudo__principal__link__ancora}>
                     <div className={styles.conteudo__principal__link}>
-                        <img
+                        <Image
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/statistic_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"
@@ -65,7 +66,7 @@ export default function Dashboard({ session }) {
 
                 <a href="" className={styles.conteudo__principal__link__ancora}>
                     <div className={styles.conteudo__principal__link}>
-                        <img
+                        <Image
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/report_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"

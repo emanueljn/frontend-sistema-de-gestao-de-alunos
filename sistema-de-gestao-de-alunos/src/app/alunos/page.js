@@ -1,10 +1,11 @@
 "use client";
 
 import { signOut, useSession } from 'next-auth/react';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from 'next/link';
 import styles from '../../styles/alunos.module.css';
 import Layout from '../../components/Layout.js';
+import Image from 'next/image';
 
 export default function Page() {
   const { data: session } = useSession(); 
@@ -14,10 +15,11 @@ export default function Page() {
   const [anosInscricao, setAnosInscricao] = useState([]);
   const [filtroAno, setFiltroAno] = useState('');
 
-  const fetchAlunos = async (query = '') => {
+  const token = session?.user?.token;
+
+  const fetchAlunos = useCallback(async (query = '') => {
     setLoading(true);
-    const token = session?.user?.token;
-    
+
     try {
       let url = `http://sjweb/api/v1/alunos/?ilike(full_name,${query}*)`;
         
@@ -51,7 +53,7 @@ export default function Page() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [filtroAno, token]);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -62,7 +64,7 @@ export default function Page() {
   // Busca todos os alunos inicialmente
   useEffect((session) => {
     fetchAlunos(''); 
-  }, [session]);
+  }, [fetchAlunos]);
 
   return (
     <>
@@ -91,7 +93,7 @@ export default function Page() {
             </select>
             
             <a href="/cadastrarAluno">
-              <img src='./images/plus_icon.svg' className={styles.conteudo__principal__alunos__navegacao__imagem} alt='Ícone Adicionar'></img>
+              <Image src='./images/plus_icon.svg' className={styles.conteudo__principal__alunos__navegacao__imagem} alt='Ícone Adicionar' />
             </a>
           </div>
 

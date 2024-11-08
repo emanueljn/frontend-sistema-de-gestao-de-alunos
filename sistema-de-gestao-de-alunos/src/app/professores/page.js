@@ -1,9 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import Link from 'next/link';
 import styles from '../../styles/alunos.module.css';
 import Layout from '../../components/Layout.js';
+import Image from 'next/image';
 
 // Definindo as disciplinas com suas abreviações e nomes completos
 const DISCIPLINAS = {
@@ -23,7 +24,7 @@ export default function Page() {
   const [filtroDisciplina, setFiltroDisciplina] = useState('');
   const disciplinasCarregadas = useRef(false);
 
-  const fetchProfessores = async (query = '') => {
+  const fetchProfessores = useCallback( async (query = '') => {
     setLoading(true); // Ativa o loading antes de iniciar a requisição
     try {
       let url = `http://127.0.0.1:8000/api/v1/professores/?ilike(full_name,${query}*)`;
@@ -43,7 +44,7 @@ export default function Page() {
     } finally {
       setLoading(false); // Desativa o loading após a requisição ser concluída
     }
-  };
+  }, [filtroDisciplina]);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
@@ -66,7 +67,7 @@ export default function Page() {
   
   useEffect(() => {
     fetchProfessores(''); // Chama a função de busca com uma string vazia
-  }, []);
+  }, [fetchProfessores]);
 
   return (
     <>
@@ -88,14 +89,14 @@ export default function Page() {
                 className={styles.conteudo__principal__alunos__navegacao__filtro} 
                 onChange={handleDisciplinaChange} // Atualiza o filtro de disciplina
               >
-                <option value="">Disciplinas</option> // Valor padrão
+                <option value="">Disciplinas</option>
                 {Object.entries(DISCIPLINAS).map(([abreviacao, nomeCompleto]) => ( // Usando as disciplinas fixas
                   <option key={abreviacao} value={abreviacao}>{nomeCompleto}</option>
                 ))}
             </select>
 
             <a href="/cadastrarProfessor">
-              <img src='./images/plus_icon.svg' className={styles.conteudo__principal__alunos__navegacao__imagem} alt='Ícone Adicionar'></img>
+              <Image src='./images/plus_icon.svg' className={styles.conteudo__principal__alunos__navegacao__imagem} alt='Ícone Adicionar' />
             </a>
           </div>
 

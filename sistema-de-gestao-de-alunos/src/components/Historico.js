@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect  } from "react";
+import { useState, useEffect, useCallback } from "react";
 
 export default function Historico({ alunoId }) {
   const [aluno, setAluno] = useState(alunoId || ''); // Usando o alunoId como valor inicial
@@ -17,7 +17,7 @@ export default function Historico({ alunoId }) {
   const [error, setError] = useState('');
 
   // Fetch histórico from the API
-  const fetchHistorico = async () => {
+  const fetchHistorico = useCallback( async () => {
     try {
       const response = await fetch(`http://127.0.0.1:8000/api/v1/historico/?aluno_id=${aluno}`);
       const data = await response.json();
@@ -25,11 +25,11 @@ export default function Historico({ alunoId }) {
     } catch (err) {
       console.error("Erro ao buscar histórico:", err);
     }
-  };
+  }, [aluno]);
 
   useEffect(() => {
     fetchHistorico();
-  }, []);
+  }, [fetchHistorico]);
 
   // Agrupa o histórico por período
   const historicoPorPeriodo = historico.reduce((acc, item) => {
