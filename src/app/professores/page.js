@@ -97,10 +97,10 @@ export default function Page() {
 
             <a href="/cadastrarProfessor">
               <Image src='./images/plus_icon.svg' 
-                className={styles.conteudo__principal__alunos__navegacao__imagem} 
-                alt='Ícone Adicionar' 
-                width="30"
-                height="15"
+              className={styles.conteudo__principal__alunos__navegacao__imagem} 
+              alt='Ícone Adicionar' 
+              width="30"
+              height="15"
               />
             </a>
           </div>
