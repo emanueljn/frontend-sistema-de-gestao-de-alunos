@@ -1,4 +1,3 @@
-import { error } from 'console';
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { setCookie } from 'nookies';
@@ -13,7 +12,7 @@ export const POST = NextAuth({
       },
       async authorize(credentials) {
         try {
-          const res = await fetch('http://127.0.0.1:8000/token/', {
+          const res = await fetch('https://sjweb/token/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

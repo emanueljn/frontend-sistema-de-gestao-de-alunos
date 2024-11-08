@@ -19,7 +19,7 @@ export default function Page() {
     const token = session?.user?.token;
     
     try {
-      let url = `http://127.0.0.1:8000/api/v1/alunos/?ilike(full_name,${query}*)`;
+      let url = `http://sjweb/api/v1/alunos/?ilike(full_name,${query}*)`;
         
       // Se um ano estiver selecionado, adicione o filtro de ano
       if (filtroAno) {

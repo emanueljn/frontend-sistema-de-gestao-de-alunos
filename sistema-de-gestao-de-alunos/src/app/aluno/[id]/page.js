@@ -1,23 +1,26 @@
-import { use } from 'react';
-import Layout from '../../../components/Layout.js';
+// src/app/aluno/[id]/page.js
+
+import Layout from '../../../components/Layout';
 import AlunoDetalhes from '../../../components/AlunoDetalhes';
 import Historico from '../../../components/Historico';
 
-export default function AlunoPage({ params }) {
+export default async function AlunoPage({ params }) {
   const { id } = params;
   
-  const aluno = use(fetch(`http://127.0.0.1:8000/api/v1/alunos/${id}`).then(res => res.json()));
+  const res = await fetch(`http://sjweb/api/v1/alunos/${id}`, {
+    cache: 'no-store', // Impede o uso de cache
+  });
 
-  if (!aluno) {
-    return <div>Carregando...</div>;
+  if (!res.ok) {
+    return <div>Aluno não encontrado.</div>;
   }
 
+  const aluno = await res.json();
+
   return (
-    <>
-      <Layout>
-          <AlunoDetalhes aluno={aluno} />
-          <Historico alunoId={id} />
-      </Layout>
-    </>
+    <Layout>
+      <AlunoDetalhes aluno={aluno} />
+      <Historico alunoId={id} />
+    </Layout>
   );
 }

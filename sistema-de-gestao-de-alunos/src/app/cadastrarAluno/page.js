@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from 'react';
+import { signut, useSession } from 'next-auth/react';
 import Layout from '../../components/Layout';
 import styles from '../../styles/cadastrarAluno.module.css';
 
 export default function Example() {
+    const { data: session } = useSession(); 
     const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
     const [showSuccess, setShowSuccess] = useState(false);
@@ -40,6 +42,8 @@ export default function Example() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+
+        const token = session?.user?.token;
     
        // Criar o objeto data
         const data = {
@@ -66,10 +70,11 @@ export default function Example() {
         }
     
         try {
-        const response = await fetch('http://127.0.0.1:8000/api/v1/alunos/', {
+        const response = await fetch('http://sjweb/api/v1/alunos/', {
             method: 'POST',
             headers: {
-            'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
         });
