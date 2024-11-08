@@ -15,6 +15,8 @@ export default function Dashboard({ session }) {
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/institutional_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"
+                            width="30"
+                            height="15"
                         />
                         <h2 className={styles.conteudo__principal__link__subtitulo}>Institucional</h2>
                     </div>
@@ -26,6 +28,8 @@ export default function Dashboard({ session }) {
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/teacher_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"
+                            width="30"
+                            height="15"
                         />
                         <h2 className={styles.conteudo__principal__link__subtitulo}>Professores</h2>
                     </div>
@@ -37,6 +41,8 @@ export default function Dashboard({ session }) {
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/student_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"
+                            width="30"
+                            height="15"
                         />
                         <h2 className={styles.conteudo__principal__link__subtitulo}>Alunos</h2>
                     </div>
@@ -48,6 +54,8 @@ export default function Dashboard({ session }) {
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/class_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"
+                            width="30"
+                            height="15"
                         />
                         <h2 className={styles.conteudo__principal__link__subtitulo}>Turmas</h2>
                     </div>
@@ -59,6 +67,8 @@ export default function Dashboard({ session }) {
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/statistic_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"
+                            width="30"
+                            height="15"
                         />
                         <h2 className={styles.conteudo__principal__link__subtitulo}>Estatísticas</h2>
                     </div>
@@ -70,6 +80,8 @@ export default function Dashboard({ session }) {
                             className={styles.conteudo__principal__link__imagem}
                             src="/images/report_icon.png"
                             alt="Imagem de uma pessoa, representando um professor, em frente e apontando para uma lousa"
+                            width="30"
+                            height="15"
                         />
                         <h2 className={styles.conteudo__principal__link__subtitulo}>Relatórios</h2>
                     </div>
