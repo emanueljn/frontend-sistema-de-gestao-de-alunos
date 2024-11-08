@@ -13,7 +13,7 @@ export const POST = NextAuth({
       },
       async authorize(credentials) {
         try {
-          const res = await fetch('https://sjweb/token/', {
+          const res = await fetch('https://sjweb.com.br/token/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json'

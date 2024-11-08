@@ -66,7 +66,7 @@ export default function Example() {
         }
     
         try {
-        const response = await fetch('https://sjweb/api/v1/alunos/', {
+        const response = await fetch('https://sjweb.com.br/api/v1/alunos/', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',

@@ -6,7 +6,7 @@ import Historico from '../../../components/Historico';
 export default function AlunoPage({ params }) {
   const { id } = params;
   
-  const aluno = use(fetch(`https://sjweb/api/v1/alunos/${id}`).then(res => res.json()));
+  const aluno = use(fetch(`https://sjweb.com.br/api/v1/alunos/${id}`).then(res => res.json()));
 
   if (!aluno) {
     return <div>Carregando...</div>;

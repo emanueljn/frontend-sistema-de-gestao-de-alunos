@@ -27,7 +27,7 @@ export default function Page() {
   const fetchProfessores = useCallback( async (query = '') => {
     setLoading(true); // Ativa o loading antes de iniciar a requisição
     try {
-      let url = `https://sjweb/api/v1/professores/?ilike(full_name,${query}*)`;
+      let url = `https://sjweb.com.br/api/v1/professores/?ilike(full_name,${query}*)`;
       
       if (filtroDisciplina) {
           url += `,eq(disciplina,${filtroDisciplina})`;
