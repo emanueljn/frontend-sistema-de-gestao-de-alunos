@@ -1,13 +1,17 @@
 "use client";
 
 import { useState } from 'react';
+import { useSession } from 'next-auth/react';
 import Layout from '../../components/Layout';
 import styles from '../../styles/cadastrarAluno.module.css';
 
-export default function Example() {
+export default function CadastrarProfessor() {
+    const { data: session } = useSession();
     const [errors, setErrors] = useState({});
     const [successMessage, setSuccessMessage] = useState('');
     const [showSuccess, setShowSuccess] = useState(false);
+
+    const token = session?.user?.token;
 
     const [formData, setFormData] = useState({
         full_name: '',
@@ -69,7 +73,8 @@ export default function Example() {
         const response = await fetch('https://sjweb.com.br/api/v1/alunos/', {
             method: 'POST',
             headers: {
-            'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
         });

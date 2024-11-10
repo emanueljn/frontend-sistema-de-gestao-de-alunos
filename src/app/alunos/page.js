@@ -1,6 +1,6 @@
 "use client";
 
-import { signOut, useSession } from 'next-auth/react';
+import { useSession } from 'next-auth/react';
 import { useState, useEffect, useCallback } from "react";
 import Link from 'next/link';
 import styles from '../../styles/alunos.module.css';
@@ -21,7 +21,7 @@ export default function Page() {
     setLoading(true);
 
     try {
-      let url = `https://sjweb/api/v1/alunos/?ilike(full_name,${query}*)`;
+      let url = `https://sjweb.com.br/api/v1/alunos/?ilike(full_name,${query}*)`;
         
       // Se um ano estiver selecionado, adicione o filtro de ano
       if (filtroAno) {

@@ -19,7 +19,7 @@ export default function Historico({ alunoId }) {
   // Fetch histórico from the API
   const fetchHistorico = useCallback( async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/v1/historico/?aluno_id=${aluno}`);
+      const response = await fetch(`https://sjweb.com.br/api/v1/historico/?aluno_id=${aluno}`);
       const data = await response.json();
       setHistorico(data);
     } catch (err) {
