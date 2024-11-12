@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Projeto de Gestão de Alunos
 
-## Getting Started
+Este é um projeto frontend de **Gestão de Alunos** desenvolvido em [Next.js](https://nextjs.org/), com o objetivo de fornecer uma plataforma eficaz para o gerenciamento de informações e históricos dos alunos.
 
-First, run the development server:
+## Iniciando
+
+Primeiro, execute o servidor de desenvolvimento:
 
 ```bash
+npm install
+
 npm run dev
-# or
+# ou
 yarn dev
-# or
+# ou
 pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abra http://localhost:3000 no seu navegador para ver o resultado.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Você pode começar a editar a página modificando app/page.js. A página é atualizada automaticamente à medida que você edita o arquivo.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Este projeto utiliza next/font para otimizar e carregar automaticamente a fonte Inter, uma fonte personalizada do Google.
 
-## Learn More
+## Tecnologias Utilizadas
 
-To learn more about Next.js, take a look at the following resources:
+Este projeto utiliza as seguintes tecnologias:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Next.js** - Framework React para criação de aplicações web com renderização no lado do servidor.
+- **React** - Biblioteca para criação de interfaces de usuário interativas.
+- **Tailwind CSS** - Framework CSS utilitário para estilização rápida e customizável.
+- **NextAuth** - Solução de autenticação para Next.js, com suporte a JWT e várias opções de login.
+- **API REST** - Integração com uma API para o backend, onde os dados dos alunos são armazenados e gerenciados.
+- **PostgreSQL/MariaDB** - Bancos de dados para armazenamento de dados do sistema.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Funcionalidades
 
-## Deploy on Vercel
+Este sistema de gestão de alunos oferece as seguintes funcionalidades:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Cadastro de Alunos, Professores e Administradores** - Permite adicionar, editar e remover perfis.
+- **Histórico de Notas** - Registro e exibição de notas para acompanhamento do desempenho do aluno.
+- **Autenticação e Controle de Acesso** - Autenticação segura via NextAuth com controle de privilégios.
+- **Página de Visualização e Edição de Dados** - Visualização de informações de alunos, incluindo notas e históricos acadêmicos.
+- **Integração com API** - Conexão com o backend para gerenciamento de dados em tempo real.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Saiba Mais
+Para saber mais sobre o Next.js, confira os seguintes recursos:
+
+- [Next.js Documentation](https://nextjs.org/docs) - aprenda sobre os recursos e a API do Next.js.
+
+- [Learn Next.js](https://nextjs.org/learn) - um tutorial interativo do Next.js.
+
+Você pode visitar o [the Next.js GitHub repository](https://github.com/vercel/next.js/) - seus comentários e contribuições são bem-vindos!
+
+## Implantação na Vercel
+A maneira mais fácil de implantar seu aplicativo Next.js é usar a Plataforma Vercel, criada pelos desenvolvedores do Next.js.
+
+Confira nossa documentação de implantação do Next.js para mais detalhes.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais informações.
+
+## Autores
+
+Emanuel de Jesus Nardes, Eduardo Vinicius de Araujo, Kauã Franchini Lima, Lucas Jonatas Dionísio, Marcos Alexandre Yoshiwara, Rafael de Oliveira Claro Pedroso, Silvio Jose Batista, Vitório Felício do Santos
