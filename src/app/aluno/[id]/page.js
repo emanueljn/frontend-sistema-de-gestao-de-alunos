@@ -6,7 +6,7 @@ import Layout from '../../../components/Layout.js';
 import AlunoDetalhes from '../../../components/AlunoDetalhes';
 import Historico from '../../../components/Historico';
 
-export default async function AlunoPage({ params }) {
+export default function AlunoPage({ params }) {
   const { data: session } = useSession();
   const { id } = params;
 
