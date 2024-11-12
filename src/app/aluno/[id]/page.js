@@ -12,13 +12,13 @@ export default function AlunoPage({ params }) {
 
   const token = session?.user?.token;
   
-  const aluno = await (fetch(`http://127.0.0.1:8000/api/v1/alunos/${id}`, {
+  const aluno =  fetch(`https://sjweb.com.br/api/v1/alunos/${id}`, {
     method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,
           'Content-Type': 'application/json',
        }
-  }).then(res => res.json()));
+  }).then(res => res.json());
 
   if (!aluno) {
     return <div>Carregando...</div>;
