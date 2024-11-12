@@ -66,7 +66,7 @@ export default function Example() {
         }
     
         try {
-        const response = await fetch('https://sjweb.com.br/api/v1/alunos/', {
+        const response = fetch('https://sjweb.com.br/api/v1/alunos/', {
             method: 'POST',
             headers: {
             'Content-Type': 'application/json',
@@ -74,7 +74,7 @@ export default function Example() {
             body: JSON.stringify(data),
         });
     
-        const responseData = await response.json();  // Converte a resposta para JSON
+        const responseData = response.json();  // Converte a resposta para JSON
   
         if (response.ok) {
             setErrors({}); // Limpa os erros em caso de sucesso
