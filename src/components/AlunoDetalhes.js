@@ -54,7 +54,7 @@ const AlunoDetalhes = ({ aluno }) => {
                                 type="text"
                                 autoComplete="given-name"
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                value={formData.full_name}
+                                value={formData.full_name || ""}
                                 onChange={handleChange}
                                 required
                             />
@@ -100,7 +100,7 @@ const AlunoDetalhes = ({ aluno }) => {
                                     type="email"
                                     autoComplete="given-email"
                                     className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.email ? 'ring-red-500' : ''}`}
-                                    value={formData.email}
+                                    value={formData.email || ""}
                                     onChange={handleChange}
                                 />
                                 {errors.email && <p className="mt-2 text-sm text-red-600">{errors.email}</p>}
@@ -156,7 +156,7 @@ const AlunoDetalhes = ({ aluno }) => {
                                     type="text"
                                     autoComplete="address-level2"
                                     className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.cep ? 'ring-red-500' : ''}`}
-                                    value={formData.cep}
+                                    value={formData.cep || ""}
                                     onChange={handleChange}
                                 />
                                 {errors.cep && <p className="mt-2 text-sm text-red-600">{errors.cep}</p>}
@@ -174,7 +174,7 @@ const AlunoDetalhes = ({ aluno }) => {
                                     type="text"
                                     autoComplete="street-address"
                                     className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.logradouro ? 'ring-red-500' : ''}`}
-                                    value={formData.logradouro}
+                                    value={formData.logradouro || ""}
                                     onChange={handleChange}
                                 />
                                 {errors.logradouro && <p className="mt-2 text-sm text-red-600">{errors.logradouro}</p>}
@@ -192,7 +192,7 @@ const AlunoDetalhes = ({ aluno }) => {
                                     type="text"
                                     autoComplete="address-level1"
                                     className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.cidade ? 'ring-red-500' : ''}`}
-                                    value={formData.complemento}
+                                    value={formData.complemento || ""}
                                     onChange={handleChange}
                                 />
                                 {errors.complemento && <p className="mt-2 text-sm text-red-600">{errors.complemento}</p>}
@@ -210,7 +210,7 @@ const AlunoDetalhes = ({ aluno }) => {
                                     type="text"
                                     autoComplete="address-level1"
                                     className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.numero ? 'ring-red-500' : ''}`}
-                                    value={formData.numero}
+                                    value={formData.numero || ""}
                                     onChange={handleChange}
                                 />
                                 {errors.numero && <p className="mt-2 text-sm text-red-600">{errors.numero}</p>}
@@ -228,7 +228,7 @@ const AlunoDetalhes = ({ aluno }) => {
                                     type="text"
                                     autoComplete="address-level1"
                                     className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.bairro ? 'ring-red-500' : ''}`}
-                                    value={formData.bairro}
+                                    value={formData.bairro || ""}
                                     onChange={handleChange}
                                 />
                                 {errors.bairro && <p className="mt-2 text-sm text-red-600">{errors.bairro}</p>}
@@ -246,7 +246,7 @@ const AlunoDetalhes = ({ aluno }) => {
                                     type="text"
                                     autoComplete="address-level1"
                                     className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.cidade ? 'ring-red-500' : ''}`}
-                                    value={formData.cidade}
+                                    value={formData.cidade || ""}
                                     onChange={handleChange}
                                 />
                                 {errors.cidade && <p className="mt-2 text-sm text-red-600">{errors.cidade}</p>}
@@ -264,7 +264,7 @@ const AlunoDetalhes = ({ aluno }) => {
                                     type="text"
                                     autoComplete="address-level1"
                                     className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.cidade ? 'ring-red-500' : ''}`}
-                                    value={formData.uf}
+                                    value={formData.uf || ""}
                                     onChange={handleChange}
                                 />
                                 {errors.uf && <p className="mt-2 text-sm text-red-600">{errors.uf}</p>}
@@ -282,7 +282,7 @@ const AlunoDetalhes = ({ aluno }) => {
                                     type="text"
                                     autoComplete="tel"
                                     className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.telefone_1 ? 'ring-red-500' : ''}`}
-                                    value={formData.telefone_1}
+                                    value={formData.telefone_1 || ""}
                                     onChange={handleChange}
                                 />
                                 {errors.telefone_1 && <p className="mt-2 text-sm text-red-600">{errors.telefone_1}</p>}
@@ -300,7 +300,7 @@ const AlunoDetalhes = ({ aluno }) => {
                                     type="text"
                                     autoComplete="tel"
                                     className={`block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 ${errors.telefone_2 ? 'ring-red-500' : ''}`}
-                                    value={formData.telefone_2}
+                                    value={formData.telefone_2 || ""}
                                     onChange={handleChange}
                                 />
                                 {errors.telefone_2 && <p className="mt-2 text-sm text-red-600">{errors.telefone_2}</p>}

@@ -45,7 +45,6 @@ Este sistema de gestão de alunos oferece as seguintes funcionalidades:
 - **Página de Visualização e Edição de Dados** - Visualização de informações de alunos, incluindo notas e históricos acadêmicos.
 - **Integração com API** - Conexão com o backend para gerenciamento de dados em tempo real.
 
-
 ## Saiba Mais
 Para saber mais sobre o Next.js, confira os seguintes recursos:
 
