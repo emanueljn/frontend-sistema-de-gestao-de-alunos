@@ -66,4 +66,4 @@ Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](L
 
 ## Autores
 
-Emanuel de Jesus Nardes, Eduardo Vinicius de Araujo, Kauã Franchini Lima, Lucas Jonatas Dionísio, Marcos Alexandre Yoshiwara, Rafael de Oliveira Claro Pedroso, Silvio Jose Batista, Vitório Felício do Santos
+Emanuel de Jesus Nardes, Eduardo Vinicius de Araujo, Kauã Franchini Lima, Lucas Jonatas Dionísio, Marcos Alexandre Yoshiwara, Rafael de Oliveira Claro Pedroso, Silvio Jose Batista, Vitório Felício do Santos.
