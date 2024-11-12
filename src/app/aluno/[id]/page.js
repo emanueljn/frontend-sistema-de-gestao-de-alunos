@@ -12,7 +12,7 @@ export default async function AlunoPage({ params }) {
 
   const token = session?.user?.token;
   
-  const aluno = await (fetch(`https://sjweb.com.br/api/v1/alunos/${id}`, {
+  const aluno = await (fetch(`http://127.0.0.1:8000/api/v1/alunos/${id}`, {
     method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`,

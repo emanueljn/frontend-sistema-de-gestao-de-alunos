@@ -21,7 +21,7 @@ export default function Page() {
     setLoading(true);
 
     try {
-      let url = `https://sjweb.com.br/api/v1/alunos/?ilike(full_name,${query}*)`;
+      let url = `http://127.0.0.1:8000/api/v1/alunos/?ilike(full_name,${query}*)`;
         
       // Se um ano estiver selecionado, adicione o filtro de ano
       if (filtroAno) {
